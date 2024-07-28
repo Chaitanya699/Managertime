@@ -1,7 +1,11 @@
-// api/credentials.js
 import { connectToDatabase } from './mongodb';
 
 export default async function handler(req, res) {
+  if (req.url === '/' && req.method === 'GET') {
+    res.status(200).send('Hello World');
+    return;
+  }
+
   const db = await connectToDatabase();
   const credentials = db.collection('credentials');
 
