@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 
-const uri = 'mongodb+srv://chaitanyakhairnar143:f2ucN2oT7eG2kJyt@chaitu.tz09ufj.mongodb.net/?retryWrites=true&w=majority&appName=chaitu'; // Connection string from MongoDB Atlas
-const client = new MongoClient(uri);
+const uri = process.env.MONGODB_URI || 'your_default_local_mongo_uri_here';
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 let db = null;
 
